@@ -1,0 +1,238 @@
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex 17692bd..b87ad69 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -3690,12 +3690,14 @@[m
+         "balanced-match": {[m
+           "version": "1.0.0",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "brace-expansion": {[m
+           "version": "1.1.11",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "balanced-match": "^1.0.0",[m
+             "concat-map": "0.0.1"[m
+[36m@@ -3710,17 +3712,20 @@[m
+         "code-point-at": {[m
+           "version": "1.1.0",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "concat-map": {[m
+           "version": "0.0.1",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "console-control-strings": {[m
+           "version": "1.1.0",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "core-util-is": {[m
+           "version": "1.0.2",[m
+[36m@@ -3837,7 +3842,8 @@[m
+         "inherits": {[m
+           "version": "2.0.3",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "ini": {[m
+           "version": "1.3.5",[m
+[36m@@ -3849,6 +3855,7 @@[m
+           "version": "1.0.0",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "number-is-nan": "^1.0.0"[m
+           }[m
+[36m@@ -3863,6 +3870,7 @@[m
+           "version": "3.0.4",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "brace-expansion": "^1.1.7"[m
+           }[m
+[36m@@ -3870,12 +3878,14 @@[m
+         "minimist": {[m
+           "version": "0.0.8",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "minipass": {[m
+           "version": "2.3.5",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "safe-buffer": "^5.1.2",[m
+             "yallist": "^3.0.0"[m
+[36m@@ -3894,6 +3904,7 @@[m
+           "version": "0.5.1",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "minimist": "0.0.8"[m
+           }[m
+[36m@@ -3974,7 +3985,8 @@[m
+         "number-is-nan": {[m
+           "version": "1.0.1",[m
+           "bundled": true,[m
+[31m-          "dev": true[m
+[32m+[m[32m          "dev": true,[m
+[32m+[m[32m          "optional": true[m
+         },[m
+         "object-assign": {[m
+           "version": "4.1.1",[m
+[36m@@ -3986,6 +3998,7 @@[m
+           "version": "1.4.0",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "wrappy": "1"[m
+           }[m
+[36m@@ -4107,6 +4120,7 @@[m
+           "version": "1.0.2",[m
+           "bundled": true,[m
+           "dev": true,[m
+[32m+[m[32m          "optional": true,[m
+           "requires": {[m
+             "code-point-at": "^1.0.0",[m
+             "is-fullwidth-code-point": "^1.0.0",[m
+[1mdiff --git a/src/app/dashboard/dashboard.component.html b/src/app/dashboard/dashboard.component.html[m
+[1mindex 7c9a64c..9d83da2 100644[m
+[1m--- a/src/app/dashboard/dashboard.component.html[m
+[1m+++ b/src/app/dashboard/dashboard.component.html[m
+[36m@@ -31,7 +31,7 @@[m
+                     <li class="nav-item">[m
+                         <a class="nav-link" [ngClass]="{'active':activeLink=='reports'}" routerLink="/dashboard/reports" (click)="whichIsActiveLink('reports')">[m
+                             <mat-icon color="primary">insert_chart</mat-icon>[m
+[31m-                            Reports[m
+[32m+[m[32m                            Charts[m
+                         </a>[m
+                     </li>[m
+                     <!-- <li class="nav-item">[m
+[1mdiff --git a/src/app/home/home.component.html b/src/app/home/home.component.html[m
+[1mindex 612d629..7b2a7f0 100644[m
+[1m--- a/src/app/home/home.component.html[m
+[1m+++ b/src/app/home/home.component.html[m
+[36m@@ -63,7 +63,9 @@[m
+         class="list-group-item d-flex justify-content-between align-items-center"[m
+       >[m
+         Least Running Category of Product[m
+[31m-        <span class="badge badge-primary badge-pill">1</span>[m
+[32m+[m[32m        <span class="badge badge-primary badge-pill">{{[m
+[32m+[m[32m          summaryData["least_category"][m
+[32m+[m[32m        }}</span>[m
+       </li>[m
+       <li[m
+         class="list-group-item d-flex justify-content-between align-items-center"[m
+[36m@@ -77,7 +79,9 @@[m
+         class="list-group-item d-flex justify-content-between align-items-center"[m
+       >[m
+         Least Running Sub-Category of Product[m
+[31m-        <span class="badge badge-primary badge-pill">1</span>[m
+[32m+[m[32m        <span class="badge badge-primary badge-pill">{{[m
+[32m+[m[32m          summaryData["least_subcategory"][m
+[32m+[m[32m        }}</span>[m
+       </li>[m
+       <li[m
+         class="list-group-item d-flex justify-content-between align-items-center"[m
+[1mdiff --git a/src/app/login/login.component.ts b/src/app/login/login.component.ts[m
+[1mindex 39bf7b8..44d31ff 100644[m
+[1m--- a/src/app/login/login.component.ts[m
+[1m+++ b/src/app/login/login.component.ts[m
+[36m@@ -26,8 +26,8 @@[m [mexport class LoginComponent implements OnInit {[m
+ [m
+   ngOnInit() {    [m
+     this.loginForm = this.formBuilder.group({[m
+[31m-      username: ['ekzayan', Validators.required],[m
+[31m-      password: ['abc123', Validators.required]      [m
+[32m+[m[32m      username: ['', Validators.required],[m
+[32m+[m[32m      password: ['', Validators.required][m[41m      [m
+     });[m
+   }[m
+   get f() { return this.loginForm.controls }[m
+[36m@@ -41,8 +41,8 @@[m [mexport class LoginComponent implements OnInit {[m
+     .set('username', this.loginForm.controls.username.value)[m
+     .set('password', this.loginForm.controls.password.value)[m
+     .set('grant_type', 'password')[m
+[31m-    .set('client_id', 'OIadiWfDUsnwYBZVIbrdyvOpCkfoQcZDTU2Lqrl4')[m
+[31m-    .set('client_secret', 'Zwh0ZThaPSvYGZTeeRgg6xhFV1G0M6oOxKA7eo87Pxk1ftBAgI4lkCHvEyeSqOgRA8t4nErS1FCA2oSjjC8fTwSnbHKoyFnl55Sg7B8Ob8reqBS2thX0lU2nmLo5aWfo');    [m
+[32m+[m[32m    .set('client_id', 'mxQBJLcjPzqzLb5qvSob6UnqUr304fD90pGM2LB5')[m
+[32m+[m[32m    .set('client_secret', 'NwHXRuzUmQzHzlnaJKijxebqGFLbkEh490FszNrn9KibzoxCAgIu5s4VnhgLiiBzcWlzsk6FgMVsjtnoS2oFczg5agy3uWyJlLAxCoMcrossMmrlf9ONIEF6Xqo96ycj');[m[41m    [m
+    [m
+     // Call auth API via service.[m
+     this.authService.auth(body).subscribe([m
+[1mdiff --git a/src/app/reports/reports.component.ts b/src/app/reports/reports.component.ts[m
+[1mindex db2d7c1..5931f08 100644[m
+[1m--- a/src/app/reports/reports.component.ts[m
+[1m+++ b/src/app/reports/reports.component.ts[m
+[36m@@ -78,7 +78,7 @@[m [mexport class ReportsComponent implements OnInit {[m
+         labels: this.category,[m
+         datasets: [[m
+           {[m
+[31m-            label: "Number of items sold in month",[m
+[32m+[m[32m            label: "Number of items sold in month(Category wise)",[m
+             data: this.categoryCount,[m
+             backgroundColor: this.bgColor,[m
+             borderColor: [[m
+[36m@@ -115,7 +115,7 @@[m [mexport class ReportsComponent implements OnInit {[m
+         labels: this.category,[m
+         datasets: [[m
+           {[m
+[31m-            label: "Number of items sold in month",[m
+[32m+[m[32m            label: "Number of items sold in month(Sub Category wise)",[m
+             data: this.categoryCount,[m
+             backgroundColor: this.bgColor,[m
+             borderColor: null,[m
+[36m@@ -177,7 +177,7 @@[m [mexport class ReportsComponent implements OnInit {[m
+         labels: chartData["month"],[m
+         datasets: [[m
+           {[m
+[31m-            label: "Number of items sold in month",[m
+[32m+[m[32m            label: "Monthly Sale(in dollars)",[m
+             data: chartData["averageSale"],[m
+             backgroundColor: [[m
+               "#aa44dd"              [m
+[1mdiff --git a/src/app/summary/summary.component.html b/src/app/summary/summary.component.html[m
+[1mindex a4a9dc9..c8dd0a1 100644[m
+[1m--- a/src/app/summary/summary.component.html[m
+[1m+++ b/src/app/summary/summary.component.html[m
+[36m@@ -23,7 +23,7 @@[m
+         </li>[m
+         <li class="list-group-item d-flex justify-content-between align-items-center">[m
+             Least Running Category of Product[m
+[31m-          <span class="badge badge-primary badge-pill">1</span>[m
+[32m+[m[32m          <span class="badge badge-primary badge-pill">{{summaryData['least_category']}}</span>[m
+         </li>[m
+         <li class="list-group-item d-flex justify-content-between align-items-center">[m
+             Most Running Sub-Category of Product[m
+[36m@@ -31,7 +31,7 @@[m
+         </li>[m
+         <li class="list-group-item d-flex justify-content-between align-items-center">[m
+             Least Running Sub-Category of Product[m
+[31m-          <span class="badge badge-primary badge-pill">1</span>[m
+[32m+[m[32m          <span class="badge badge-primary badge-pill">{{summaryData['least_subcategory']}}</span>[m
+         </li>[m
+         <li class="list-group-item d-flex justify-content-between align-items-center">[m
+             Region of Highest Sale [m

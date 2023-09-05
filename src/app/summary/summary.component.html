@@ -1,0 +1,52 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Summary</li>
+    </ol>
+  </nav>
+<div class="col-md-6">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center active">
+            SUMMARY          
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Sales
+          <span class="badge badge-primary badge-pill">{{summaryData['totalSales']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Profit
+          <span class="badge badge-primary badge-pill">{{summaryData['totalProfit']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Most Running Category of Product
+          <span class="badge badge-primary badge-pill">{{summaryData['most_category']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Least Running Category of Product
+          <span class="badge badge-primary badge-pill">{{summaryData['least_category']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Most Running Sub-Category of Product
+          <span class="badge badge-primary badge-pill">{{summaryData['most_subcategory']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Least Running Sub-Category of Product
+          <span class="badge badge-primary badge-pill">{{summaryData['least_subcategory']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Region of Highest Sale 
+          <span class="badge badge-primary badge-pill">{{summaryData['most_region']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Region of Lowest Sale
+          <span class="badge badge-primary badge-pill">{{summaryData['laest_region']}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Month of Maximum Sale
+          <span class="badge badge-primary badge-pill">{{getMonthFromId(summaryData['most_month'])}}</span>
+        </li>
+      </ul>
+    </div>
+  <!-- </div> -->
+
+

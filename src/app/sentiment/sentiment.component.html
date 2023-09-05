@@ -1,0 +1,56 @@
+<!-- <div class="jumbotron"> -->
+<!-- <div class="container"> -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Sentiment</li>
+  </ol>
+</nav>
+<div class="form-group col-md-4">
+  <label for="exampleFormControlSelect1">Filter</label>
+  <select
+    class="form-control"
+    id="exampleFormControlSelect1"
+    (change)="filterSentiment($event.target.value)"
+  >
+    <option value="Category" selected>Category</option>
+    <option value="Product Name">Product Name</option>
+    <option value="Sub-Category">Sub Category</option>
+  </select>
+</div>
+<table class="table abc">
+  <thead>
+    <th>Name</th>
+    <th>Percentage</th>
+    <th>Rating</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of sentimentData | keys">
+      <td>{{ item.key }}</td>
+      <td>{{ item.value }}%</td>
+      <td>
+        <span *ngIf="item.value > 0 && item.value < 20" class="star">
+          <i class="fas fa-star"></i>
+        </span>
+        <span *ngIf="item.value >= 20 && item.value < 40" class="star">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </span>
+        <span *ngIf="item.value >= 40 && item.value < 60" class="star">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i>
+        </span>
+        <span *ngIf="item.value >= 60 && item.value < 80" class="star">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </span>
+        <span *ngIf="item.value >= 80" class="star">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- </div> -->
+<!-- </div> -->
